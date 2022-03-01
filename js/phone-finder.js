@@ -12,7 +12,7 @@ searchButton = () => {
 
 const displayPhone = (phones) =>{
     const first20Data = phones.slice(0,20);
-    for(const phone of phones){
+    for(const phone of first20Data){
         console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col-lg-4');
@@ -55,6 +55,8 @@ const displayPhoneDetails = (details) => {
                             <b>Memory:</b> ${details.mainFeatures.storage}<br>
                             <b>Display:</b> ${details.mainFeatures.displaySize}
                         </p>
+                        <p>Others-<br> <b>Blutooth:</b> ${details.others ? details.others.Bluetooth:''}<p/>
+                        <p><b>Sensor:</b> ${details.mainFeatures.sensors ? details.mainFeatures.sensors[0]:''}<p/>
                     </div>
                 </div>
         `;
