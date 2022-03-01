@@ -49,9 +49,12 @@ const displayPhoneDetails = (details) => {
                     <img src="${details.image}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="ID-Name">${details.slug}</h5>
-                        <p class="Release-Date">Release Date: ${details.releaseDate}</p>
-                        <p> Mainfeatures:${details.mainFeatures.storage} </p>
-                        
+                        <p> <b>Release Date:</b> ${details.releaseDate}</p>
+                        <p> <b>Mainfeatures:</b><br>
+                            <b>Chipset:</b> ${details.mainFeatures.chipSet}<br>
+                            <b>Memory:</b> ${details.mainFeatures.storage}<br>
+                            <b>Display:</b> ${details.mainFeatures.displaySize}
+                        </p>
                     </div>
                 </div>
         `;
