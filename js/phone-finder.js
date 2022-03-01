@@ -42,7 +42,7 @@ const displayPhoneDetails = (details) => {
     console.log(details);
     const phoneDetails = document.getElementById('phone-details');
     const div = document.createElement('div');
-        // div.classList.add('col-lg-4');
+    div.classList.add('col-lg-4');
     div.classList.add('mb-5');
     div.innerHTML = `
                 <div class="card" style="width: 18rem;">
