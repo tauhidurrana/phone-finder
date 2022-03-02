@@ -2,12 +2,24 @@ const main = document.getElementById('main')
 
 searchButton = () => {
     const searchField = document.getElementById('search-field');
+    const error = document.getElementById("error");
     const searchText = searchField.value;
     searchField.value = '';
     // console.log(searchText);
-    fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
-    .then(res => res.json())
-    .then(data => displayPhone(data.data))
+    if (searchText == '') {
+        error.innerText = 'Enter a mobile name';
+        main.innerHTML="";
+    }
+    else{
+        main.innerHTML="";
+        fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
+        .then(res => res.json())
+        .then(data => displayPhone(data.data))
+
+        error.innerHTML=""
+    }
+
+    
 }
 
 const displayPhone = (phones) =>{
@@ -49,8 +61,8 @@ const displayPhoneDetails = (details) => {
                     <img src="${details.image}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="ID-Name">${details.slug}</h5>
-                        <p> <b>Release Date:</b> ${details.releaseDate}</p>
-                        <p> <b>Mainfeatures:</b><br>
+                        <p><b>Release Date:</b> ${details.releaseDate}</p>
+                        <p><b>Mainfeatures:</b><br>
                             <b>Chipset:</b> ${details.mainFeatures.chipSet}<br>
                             <b>Memory:</b> ${details.mainFeatures.storage}<br>
                             <b>Display:</b> ${details.mainFeatures.displaySize}
@@ -61,4 +73,5 @@ const displayPhoneDetails = (details) => {
                 </div>
         `;
     phoneDetails.appendChild(div);
+    
 }
