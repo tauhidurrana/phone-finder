@@ -1,10 +1,12 @@
 const main = document.getElementById('main')
+const phoneDetails = document.getElementById('phone-details');
 
 searchButton = () => {
     const searchField = document.getElementById('search-field');
     const error = document.getElementById("error");
     const searchText = searchField.value;
     searchField.value = '';
+    phoneDetails.innerHTML = '';
     // console.log(searchText);
     if (searchText == '') {
         error.innerText = 'Enter a mobile name';
@@ -52,7 +54,7 @@ const PhoneDetails = (IdSlug) => {
 
 const displayPhoneDetails = (details) => {
     console.log(details);
-    const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.innerHTML = '';
     const div = document.createElement('div');
     div.classList.add('col-lg-4');
     div.classList.add('mb-5');
